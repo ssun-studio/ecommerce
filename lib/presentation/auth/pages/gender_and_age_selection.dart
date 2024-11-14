@@ -1,3 +1,4 @@
+import 'package:ecommerce/common/bloc/button/button_state.dart';
 import 'package:ecommerce/common/bloc/button/button_state_cubit.dart';
 import 'package:ecommerce/common/helper/bottomsheet/app_bottomsheet.dart';
 import 'package:ecommerce/core/configs/theme/app_colors.dart';
@@ -31,29 +32,40 @@ class GenderAndAgeSelectionPage extends StatelessWidget {
             BlocProvider(create: (context) => AgesDisplayCubit()),
             BlocProvider(create: (context) => ButtonStateCubit()),
           ],
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 40
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      _tellUs(),
-                      const SizedBox(height: 30, ),
-                        _genders(context),
+          child: BlocListener<ButtonStateCubit,ButtonState>(
+            listener: (context, state) {
+              if (state is ButtonFailureState){
+                var snackbar = SnackBar(
+                content: Center(child: Text(state.errorMessage)), // Center the text
+                behavior: SnackBarBehavior.floating, // Set width to center
+                );
+                ScaffoldMessenger.of(context).showSnackBar(snackbar);
+              }
+            },
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 40
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        _tellUs(),
                         const SizedBox(height: 30, ),
-                          howOld(),
+                          _genders(context),
                           const SizedBox(height: 30, ),
-                            _age(),
-                    ],
-                  ),
-              ),
-              const Spacer(),
-                _finishButton(context)
-            ],
+                            howOld(),
+                            const SizedBox(height: 30, ),
+                              _age(),
+                      ],
+                    ),
+                ),
+                const Spacer(),
+                  _finishButton(context)
+              ],
+            ),
           ),
         ),
     );
