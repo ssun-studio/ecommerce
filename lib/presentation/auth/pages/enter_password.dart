@@ -27,7 +27,7 @@ class EnterPasswordPage extends StatelessWidget {
             const SizedBox(height: 20,),
             _passwordField(context),
             const SizedBox(height: 20,),
-            _continueButton(),
+            _continueButton(context),
             const SizedBox(height: 20,),
             _forgotPassword(context),
           ],
@@ -57,9 +57,10 @@ class EnterPasswordPage extends StatelessWidget {
   }
 
   // Continue button widget
-  Widget _continueButton() {
+  Widget _continueButton(BuildContext context) {
     return BasicAppButton(
-      onPressed: (){},
+      onPressed: (){
+      },
       title: 'Continue',
     );
   }
