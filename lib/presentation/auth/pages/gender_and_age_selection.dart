@@ -40,7 +40,7 @@ class GenderAndAgeSelectionPage extends StatelessWidget {
                 behavior: SnackBarBehavior.floating, // Set width to center
                 );
                 ScaffoldMessenger.of(context).showSnackBar(snackbar);
-              }
+              } 
             },
             child: Column(
               children: [
