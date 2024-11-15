@@ -1,7 +1,7 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 
 import 'package:ecommerce/data/auth/models/user_creation_req.dart';
+import 'package:ecommerce/data/auth/models/user_signin_req.dart';
 import 'package:ecommerce/data/auth/source/auth_firebase_service.dart';
 import 'package:ecommerce/domain/auth/repository/auth.dart';
 import 'package:ecommerce/service_locator.dart';
@@ -16,16 +16,11 @@ class AuthRepositoryImpl extends AuthRepository{
   
   @override
   Future<Either> getAges() async {
-    try{
-      var returnedData = await FirebaseFirestore.instance.collection('Ages').get();
+    return await sl<AuthFirebaseService>().getAges();
+  }
 
-      return Right(
-        returnedData.docs
-      );
-    } catch (e) {
-      return Left(
-        'Please try again'
-      );
-    }    
+  @override
+  Future<Either> signin(UserSigninReq user) async {
+    return await sl<AuthFirebaseService>().signin(user);
   }
 }
