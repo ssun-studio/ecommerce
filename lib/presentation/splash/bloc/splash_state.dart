@@ -4,4 +4,4 @@ class DisplaySplash extends SplashState {}
 
 class Authenticated extends SplashState {}
 
-class UnAtuthenticated extends SplashState {}
+class UnAuthenticated extends SplashState {}
