@@ -1,5 +1,5 @@
 import 'package:ecommerce/core/configs/theme/app_colors.dart';
-import 'package:ecommerce/core/configs/theme/assets/app_vectors.dart';
+import 'package:ecommerce/core/configs/assets/app_vectors.dart';
 import 'package:ecommerce/presentation/auth/pages/signin.dart';
 import 'package:ecommerce/presentation/splash/pages/bloc/splash_cubit.dart';
 import 'package:ecommerce/presentation/splash/pages/bloc/splash_state.dart';
