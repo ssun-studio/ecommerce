@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../common/bloc/categories/categories_display_state.dart';
+import '../../../domain/category/entity/category.dart';
 
 class Categories extends StatelessWidget {
   const Categories({super.key});
@@ -21,7 +22,7 @@ class Categories extends StatelessWidget {
               children: [
                 _seaAll(),
                 const SizedBox(height: 20, ),
-                _categories()
+                _categories(state.categories)
               ],
             );
           }
@@ -62,7 +63,7 @@ class Categories extends StatelessWidget {
     );
   }
 
-  Widget _categories() {
+  Widget _categories(List<CategoryEntity> categories) {
     return SizedBox(
       height: 100,
       child: ListView.separated(
@@ -83,7 +84,7 @@ class Categories extends StatelessWidget {
                 ),
               const SizedBox(height: 10,),
               Text(
-                'Text',
+                categories[index].title,
                 style: const TextStyle(
                   fontWeight: FontWeight.w400,
                   fontSize: 14
@@ -93,7 +94,7 @@ class Categories extends StatelessWidget {
           );
         },
         separatorBuilder: (context, index) => const SizedBox(width: 15),
-        itemCount: 5,
+        itemCount: categories.length
       ),
     );
   }
