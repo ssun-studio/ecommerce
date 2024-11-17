@@ -1,7 +1,6 @@
 import 'package:ecommerce/common/bloc/categories/categories_display_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../common/bloc/categories/categories_display_state.dart';
 import '../../../domain/category/entity/category.dart';
 
@@ -80,7 +79,11 @@ class Categories extends StatelessWidget {
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: Colors.white,
-                  )
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/shopping_bag.png'),
+                    fit: BoxFit.cover,
+    )
+                  ),
                 ),
               const SizedBox(height: 10,),
               Text(
