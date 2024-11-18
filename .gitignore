@@ -45,3 +45,6 @@ app.*.map.json
 # Firebase
 firebase.exe
 lib/firebase_options.dart
+
+# Ignore BFG Repo-Cleaner JAR
+bfg.jar
